@@ -7,8 +7,8 @@ class User_input:
     
     def get_user_input(self):
         try:
-            self.income = float(input('Please enter your monthly income'))
-            self.fix_expensess = float(input('Please enter your monthly fixed expenses'))
+            self.income = float(input('Please enter your monthly income: '))
+            self.fix_expensess = float(input('Please enter your monthly fixed expenses: '))
             return self.income, self.fix_expenses
         except ValueError:
             print(f'Error: Please enter a valid number')
