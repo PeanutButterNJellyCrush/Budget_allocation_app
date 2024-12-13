@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 from tabulate import tabulate
+from colorama import Fore, Style, init
 
 class Budget:
     def __init__(self, income, fixed_expenses):
@@ -17,7 +18,11 @@ class Budget:
     
     def display_budget(self):
         savings, investments, dining_out, guilt_free_spending = self.budget_calculation()
-        print(f"Your Monthly Budget Allocation: Saving: {savings}, Investment: {investments}, Dining-out : {dining_out}, Guilt Free Spending{guilt_free_spending}")
+        print(f"{Fore.RED}Your Monthly Budget Allocation:")
+        print(f"{Fore.BLUE}Saving:{Style.RESET_ALL} ${savings:.2f}")
+        print(f"{Fore.BLUE}Investment:{Style.RESET_ALL} ${investments:.2f}")
+        print(f"{Fore.BLUE}Dining-out:{Style.RESET_ALL} ${dining_out:.2f}")
+        print(f"{Fore.BLUE}Guilt Free Spending:{Style.RESET_ALL} ${guilt_free_spending:.2f}")
         self.display_budget_table(savings, investments, dining_out, guilt_free_spending)
         self.pie_chart(savings, investments, dining_out, guilt_free_spending)
 
@@ -43,7 +48,7 @@ class Budget:
         
 
         plt.pie(values, labels=categories, autopct=lambda pct: func(pct, values), startangle=140)
-        plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+        plt.axis('equal')  # ensures that pie is drawn as a circle.
         plt.title("Budget Allocation Breakdown")
         plt.savefig("Budget_Allocation_Breakdown_PieChart")
         print("Pie chart has been saved as 'Budget_Allocation_Breakdown_PieChart.png'.")
