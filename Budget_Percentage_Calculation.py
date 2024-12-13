@@ -52,7 +52,7 @@ class Budget:
         # function to format the labels with value 
         def func(pct, allvals): #pct: The percentage of the pie slice (how much of the total the slice represents).allvals: The list of all values (like values), which represents the total money in each category.
             absolute = round(pct / 100.*sum(allvals), 2)
-            return f"${absolute}" 
+            return f"${absolute:.2f}" 
         
 
         plt.pie(values, labels=categories, autopct=lambda pct: func(pct, values), startangle=140)
