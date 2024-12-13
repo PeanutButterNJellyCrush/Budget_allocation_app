@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 from tabulate import tabulate
 from colorama import Fore, Style, init
+import pyfiglet
 
 class Budget:
     def __init__(self, income, fixed_expenses):
@@ -18,6 +19,7 @@ class Budget:
     
     def display_budget(self):
         savings, investments, dining_out, guilt_free_spending = self.budget_calculation()
+        self.print_header("small")
         print(f"{Fore.RED}Your Monthly Budget Allocation:")
         print(f"{Fore.BLUE}Saving:{Style.RESET_ALL} ${savings:.2f}")
         print(f"{Fore.BLUE}Investment:{Style.RESET_ALL} ${investments:.2f}")
@@ -25,6 +27,12 @@ class Budget:
         print(f"{Fore.BLUE}Guilt Free Spending:{Style.RESET_ALL} ${guilt_free_spending:.2f}")
         self.display_budget_table(savings, investments, dining_out, guilt_free_spending)
         self.pie_chart(savings, investments, dining_out, guilt_free_spending)
+
+
+    def print_header(self, font="small"):
+        # Use pyfiglet to print the header in a cool ASCII art style
+        header_style = pyfiglet.figlet_format("Budget App", font=font)
+        print(Fore.CYAN + header_style)
 
 
     def display_budget_table(self, savings, investments, dining_out, guilt_free_spending):
