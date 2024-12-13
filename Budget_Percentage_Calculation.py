@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+from tabulate import tabulate
 
 class Budget:
     def __init__(self, income, fixed_expenses):
@@ -16,8 +17,20 @@ class Budget:
     
     def display_budget(self):
         savings, investments, dining_out, guilt_free_spending = self.budget_calculation()
-        print(f"Your Monthly Budget Allocation: Saving: {savings}, Investment: {investments}, Dining-put : {dining_out}, Guilt Free Spending{guilt_free_spending}")
+        print(f"Your Monthly Budget Allocation: Saving: {savings}, Investment: {investments}, Dining-out : {dining_out}, Guilt Free Spending{guilt_free_spending}")
+        self.display_budget_table(savings, investments, dining_out, guilt_free_spending)
         self.pie_chart(savings, investments, dining_out, guilt_free_spending)
+
+
+    def display_budget_table(self, savings, investments, dining_out, guilt_free_spending):
+        table = [
+            ['Savings', f"${savings:.2f}"],
+            ['Investments', f"${investments:.2f}"],
+            ['Dining Out', f"${dining_out:.2f}"],
+            ['Guilt-Free Spending', f"${guilt_free_spending:.2f}"]
+        ]
+        print(tabulate(table, headers=["Category", "Amount"], tablefmt="fancy_grid"))
+
 
     def pie_chart(self, savings, investments, dining_out, guilt_free_spending):
         categories = ['Savings', 'Investments', 'Dining Out', 'Guilt-Free Spending']
