@@ -10,10 +10,11 @@ class Budget:
         self.remaining_income = self.income - fixed_expenses
 
     def budget_calculation(self):
-        savings = self.remaining_income * 0.30 
-        investments = self.remaining_income * 0.20
-        dining_out = self.remaining_income * 0.10  
-        guilt_free_spending = self.remaining_income * 0.10
+        calculate = lambda percantage: percantage * self.remaining_income
+        savings = calculate(0.30)
+        investments = calculate(0.20)
+        dining_out = calculate(0.10) 
+        guilt_free_spending = calculate(0.10)
         return savings, investments, dining_out, guilt_free_spending
 
     
@@ -21,10 +22,14 @@ class Budget:
         savings, investments, dining_out, guilt_free_spending = self.budget_calculation()
         self.print_header("small")
         print(f"{Fore.RED}Your Monthly Budget Allocation:")
-        print(f"{Fore.BLUE}Saving:{Style.RESET_ALL} ${savings:.2f}")
-        print(f"{Fore.BLUE}Investment:{Style.RESET_ALL} ${investments:.2f}")
-        print(f"{Fore.BLUE}Dining-out:{Style.RESET_ALL} ${dining_out:.2f}")
-        print(f"{Fore.BLUE}Guilt Free Spending:{Style.RESET_ALL} ${guilt_free_spending:.2f}")
+        catergories = [
+                        ("Saving" , savings), 
+                        ("Investment" , investments), 
+                        ("Dining-out" , dining_out),
+                        ("Guilt Free Spending" , guilt_free_spending)
+                       ]
+        for category, value in catergories:
+            print(f"{Fore.BLUE}{category}:{Style.RESET_ALL} ${value:.2f}")
         self.display_budget_table(savings, investments, dining_out, guilt_free_spending)
         self.pie_chart(savings, investments, dining_out, guilt_free_spending)
 
