@@ -4,14 +4,18 @@ from continue_app import ask_to_continue
 
 def main():
     while True:
-        user = User_input(0, 0)
-        user.get_user_input()
+        try: 
+            user = User_input(0, 0)
+            user.get_user_input()
 
-        result = Budget(user.income, user.fix_expenses)
-        result.display_budget()
+            result = Budget(user.income, user.fix_expenses)
+            result.display_budget()
 
-        if not ask_to_continue():
-            break
+            if not ask_to_continue():
+                break
+
+        except Exception as e:
+            print(f'an unexpected error{e} occur')
 
 if __name__ == "__main__":
     main()
