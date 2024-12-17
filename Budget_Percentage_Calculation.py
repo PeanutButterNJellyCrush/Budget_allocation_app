@@ -19,28 +19,34 @@ class Budget:
 
     def budget_calculation(self):
         calculate = lambda percantage: percantage * self.remaining_income
-        savings = calculate(0.30)
+        savings = calculate(0.25)
         investments = calculate(0.20)
         dining_out = calculate(0.10) 
+        grocery = calculate(0.15)
+        transport = calculate(0.05)
         guilt_free_spending = calculate(0.10)
-        return savings, investments, dining_out, guilt_free_spending
+        emergency_fund = calculate(0.15)
+        return savings, investments, dining_out, grocery, guilt_free_spending, emergency_fund, transport
 
     
     def display_budget(self):
         try: 
-            savings, investments, dining_out, guilt_free_spending = self.budget_calculation()
+            savings, investments, dining_out, grocery, guilt_free_spending, emergency_fund, transport = self.budget_calculation()
             self.print_header("small")
             print(f"{Fore.RED}Your Monthly Budget Allocation:")
             catergories = [
                             ("Saving" , savings), 
                             ("Investment" , investments), 
                             ("Dining-out" , dining_out),
-                            ("Guilt Free Spending" , guilt_free_spending)
+                            ("Grocery", grocery),
+                            ("Transport", transport),
+                            ("Guilt Free Spending" , guilt_free_spending),
+                            ("Emergency Fund", emergency_fund)
                         ]
             for category, value in catergories:
                 print(f"{Fore.BLUE}{category}:{Style.RESET_ALL} ${value:.2f}")
-            self.display_budget_table(savings, investments, dining_out, guilt_free_spending)
-            self.pie_chart(savings, investments, dining_out, guilt_free_spending)
+            self.display_budget_table(savings, investments, dining_out, grocery, guilt_free_spending, emergency_fund, transport)
+            self.pie_chart(savings, investments, dining_out, grocery, guilt_free_spending, emergency_fund, transport)
         except Exception as e:
             print(f"{Fore.RED}Error in displaying the budget: {e}{Style.RESET_ALL}")
 
@@ -62,13 +68,16 @@ class Budget:
             print(f"{Fore.RED}Error: Failed to print the header due to encoding issues: {e}{Style.RESET_ALL}")
 
 
-    def display_budget_table(self, savings, investments, dining_out, guilt_free_spending):
+    def display_budget_table(self, savings, investments, dining_out, grocery, guilt_free_spending, emergency_fund, transport):
         try: 
             table = [
                 ['Savings', f"${savings:.2f}"],
                 ['Investments', f"${investments:.2f}"],
                 ['Dining Out', f"${dining_out:.2f}"],
-                ['Guilt-Free Spending', f"${guilt_free_spending:.2f}"]
+                ['Grocery', f"${grocery:.2f}"],
+                ['Transport', f"${transport:.2f}"],
+                ['Guilt-Free Spending', f"${guilt_free_spending:.2f}"],
+                ['Emergency Fund', f"${emergency_fund:.2f}"]
             ]
             print(tabulate(table, headers=["Category", "Amount"], tablefmt="fancy_grid"))
         except Exception as e:
@@ -76,9 +85,9 @@ class Budget:
 
 
 
-    def pie_chart(self, savings, investments, dining_out, guilt_free_spending):
-        categories = ['Savings', 'Investments', 'Dining Out', 'Guilt-Free Spending']
-        values = [savings, investments, dining_out, guilt_free_spending]
+    def pie_chart(self, savings, investments, dining_out, grocery, guilt_free_spending, emergency_fund, transport):
+        categories = ['Savings', 'Investments', 'Dining Out', 'Grocery', 'Transport', 'Guilt-Free Spending', 'Emergency Fund']
+        values = [savings, investments, dining_out, grocery, guilt_free_spending, emergency_fund, transport]
 
         # function to format the labels with value 
         def func(pct, allvals): #pct: The percentage of the pie slice (how much of the total the slice represents).allvals: The list of all values (like values), which represents the total money in each category.
