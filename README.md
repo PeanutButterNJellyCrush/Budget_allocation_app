@@ -16,7 +16,7 @@ The app calculates how users can best allocate their income across various expen
     Before running the app, ensure you have the following installed:
         - **Python 3.x** (Recommended: Python 3.8+)
         The following Python libraries (can be installed using 'pip'):
-            - 'matplotlib': For visualizing sdhe budget allocation in a pie chart.
+            - 'matplotlib': For visualizing the budget allocation in a pie chart.
             - 'tabulate': For formatting the budget data into a table.
             - 'colorama': For terminal text formatting (used to display colorful output).
             - 'pyfiglet': For printing the app header in an ASCII art style.
