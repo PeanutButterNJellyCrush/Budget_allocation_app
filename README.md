@@ -88,7 +88,12 @@ Guilt-Free Spending: 10% of remaining income
 
 ## Copyright and Licence 
     This project uses the following Python libraries:
-    `matplotlib` (version 3.6.0) - Licensed under the [Matplotlib License](https://matplotlib.org/stable/users/license.html)
+    - `matplotlib` (version 3.6.0) - Licensed under the [Matplotlib License](https://matplotlib.org/stable/users/license.html)
+      for installation and documentation on using matplot library 
+      [Matplotlib Documentation](https://matplotlib.org/3.6.0/)
     - `tabulate` (version 0.9.0) - Licensed under the [MIT License](https://opensource.org/licenses/MIT)
+      for installation and documentation using tabulate 0.9.0
+      [Tabulate Documentation] (https://pypi.org/project/tabulate/)
     - `colorama` (version 0.4.6) - Licensed under the [MIT License](https://opensource.org/licenses/MIT)
+      [Colorama 0.4.6] (https://pypi.org/project/colorama/)
     - `pyfiglet` (version 0.8) - Licensed under the [MIT License](https://opensource.org/licenses/MIT)
