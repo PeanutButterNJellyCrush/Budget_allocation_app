@@ -41,7 +41,7 @@ class Budget:
 
         # Ensuring income and expenses are provided
         if income is None or fixed_expenses is None:
-            # # Avoids further calculations with missing data
+            # Avoids further calculations with missing data
             return
         
         # Validate that expenses are not equal to or greater than income
@@ -49,23 +49,42 @@ class Budget:
             #raise an error message is displayed in red, preventing incorrect budgeting, and reset the colours
            raise ValueError("{Fore.RED}Expenses cannot be larger than income, or equal to the income{Style.RESET_ALL}")
 
+    #  Calculates budget allocation based on fixed percentage categories.
     def budget_calculation(self):
+
+        # Define a lambda function called 'calculate' that takes a percentage and calculates that percentage of the remaining income (self.remaining_income)
         calculate = lambda percantage: percantage * self.remaining_income
-        savings = calculate(0.25)
-        investments = calculate(0.20)
-        dining_out = calculate(0.10) 
-        grocery = calculate(0.15)
-        transport = calculate(0.05)
-        guilt_free_spending = calculate(0.10)
-        emergency_fund = calculate(0.15)
+
+        # Calculate each category of the budget using the lambda function
+        savings = calculate(0.25)            # 25% of remaining income is for savings
+        investments = calculate(0.20)        # 20% of remaining income is for investments
+        dining_out = calculate(0.10)         # 10% of remaining income is for dining out
+        grocery = calculate(0.15)            # 15% of remaining income is for groceries
+        transport = calculate(0.05)          # 5% of remaining income is for transport
+        guilt_free_spending = calculate(0.10) # 10% of remaining income is for guilt-free spending
+        emergency_fund = calculate(0.15)     # 15% of remaining income is for the emergency fund
+
+        # Return all the calculated budget categories as a tuple
         return savings, investments, dining_out, grocery, guilt_free_spending, emergency_fund, transport
 
-    
+    # Displaying the user's monthly budget allocation
     def display_budget(self):
+
+        # Attempt to execute the budget display logic
         try: 
+
+            # Get the budget categories and their values by calling the budget_calculation method
             savings, investments, dining_out, grocery, guilt_free_spending, emergency_fund, transport = self.budget_calculation()
+
+            # Print a small header to introduce the budget display
             self.print_header("small")
+
+            # Print the text in red text 
             print(f"{Fore.RED}Your Monthly Budget Allocation:")
+
+            # Define a list of tuples containing budget categories and their calculated values
+            # Each tuple consists of two elements: the category name (as a string) and the corresponding value
+# that was calculated earlier in the budget_calculation() method.
             catergories = [
                             ("Saving" , savings), 
                             ("Investment" , investments), 
@@ -75,10 +94,18 @@ class Budget:
                             ("Guilt Free Spending" , guilt_free_spending),
                             ("Emergency Fund", emergency_fund)
                         ]
+            
+            # Loop through each category and its corresponding value, printing them in blue text, with the value in two decimal places with reseted colour
             for category, value in catergories:
                 print(f"{Fore.BLUE}{category}:{Style.RESET_ALL} ${value:.2f}")
+            
+            # Call the method "display_budget_table" to display the budget in a table format
             self.display_budget_table(savings, investments, dining_out, grocery, guilt_free_spending, emergency_fund, transport)
+
+            # Call the method "pie_chart" to display a pie chart representing the budget allocation visually
             self.pie_chart(savings, investments, dining_out, grocery, guilt_free_spending, emergency_fund, transport)
+
+            # In case of any error, print an error message in red, and reset the text style after this
         except Exception as e:
             print(f"{Fore.RED}Error in displaying the budget: {e}{Style.RESET_ALL}")
 
