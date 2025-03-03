@@ -1,20 +1,52 @@
+# Import necessary libraries, handling missing packages errors
 try:
-    import matplotlib.pyplot as plt
-    from tabulate import tabulate
-    from colorama import Fore, Style, init
-    import pyfiglet
+    # Import matplotlib.pyplot to generate a pie chart visualization of the budget as "plt"
+    import matplotlib.pyplot as plt 
+
+    # Import tabulate to display budget breakdown in a table format
+    from tabulate import tabulate 
+
+    # To add coloured text in console output
+        # Fore: For changing the text colour (e.g., Fore.RED for red text)
+        # Style: For additional text formatting like BRIGHT, DIM, and NORMAL
+        # init: To ensure compatibility with Windows terminals by enabling ANSI color codes
+    from colorama import Fore, Style, init 
+
+    # Import pyfiglet for ASCII art title formatting
+    import pyfiglet 
+
+# Handling the case where an imported package is missing
 except ImportError as e:
+    # Prints an error message specifying the missing package, with {e.name} which contains the name of the package that failed to import
     print(f'Error: The package {e.name} is not installed. Please install it by running: pip install {e.name}')
+    # Exits the program to ensure that the script does not continue running, and preventing runtime error
     exit(1)
 
+# A class to represents a monthly budget allocation system
 class Budget:
+    # Initializes the budget with income and expenses, ensuring values are valid.
+    # Parameters:
+        # income (float): The user's total monthly income.
+        # fixed_expenses (float): The total fixed expenses deducted from the income.
     def __init__(self, income, fixed_expenses):
+        # Attributes:
+        # income (float): Stores the provided income value.
         self.income = income
+
+        # fixed_expenses (float): Stores the provided fixed expenses value.
         self.fixed_expenses = fixed_expenses
+
+        # remaining_income (float): Calculates the disposable income by subtracting fixed expenses from income.
         self.remaining_income = self.income - fixed_expenses
+
+        # Ensuring income and expenses are provided
         if income is None or fixed_expenses is None:
+            # # Avoids further calculations with missing data
             return
+        
+        # Validate that expenses are not equal to or greater than income
         if self.remaining_income <= 0:
+            #raise an error message is displayed in red, preventing incorrect budgeting, and reset the colours
            raise ValueError("{Fore.RED}Expenses cannot be larger than income, or equal to the income{Style.RESET_ALL}")
 
     def budget_calculation(self):
