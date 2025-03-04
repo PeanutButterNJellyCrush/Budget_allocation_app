@@ -46,10 +46,6 @@ class User_input:
                 # Prompt user for fixed expenses and validate input
                 self.fix_expenses = float(input('Please enter your monthly fixed expenses: '))
 
-                # Input validation with timeout by restricting user input time to 30 seconds
-                with timeout(30): 
-                     self.fix_expenses = float(input('Please enter your monthnly fixed expenses: '))
-
                 # If the user input is negative
                 if self.fix_expenses < 0:
 
@@ -64,8 +60,9 @@ class User_input:
                     print(f"Error: Expenses cannot be greater than your monthly income. Please try again.")
 
                 # Return validated values for running the calculation
+                    continue
                 return self.income, self.fix_expenses
-                
+            
             # Handles cases where the user enters a non-numeric value
             except ValueError:
 
@@ -77,7 +74,9 @@ class User_input:
 
             # Catches user pressing ctrl + c
             except KeyboardInterrupt:
-                print(f"App exited by user.")
+                 print(f"App exited by user.")
+                 exit()
+
 
             # Catches any other unexpected errors
             except Exception as e:
@@ -85,8 +84,5 @@ class User_input:
                 print(f"Unexpected Error Occur {e}, Please double check your answer and try again :)")
 
                 # Exits the function in case of an unexpected error
-
-         
-                
                 return 
 
