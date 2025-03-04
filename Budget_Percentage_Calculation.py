@@ -6,10 +6,13 @@ try:
     # Import tabulate to display budget breakdown in a table format
     from tabulate import tabulate 
 
-    # To add coloured text in console output
-        # Fore: For changing the text colour (e.g., Fore.RED for red text)
-        # Style: For additional text formatting like BRIGHT, DIM, and NORMAL
-        # init: To ensure compatibility with Windows terminals by enabling ANSI color codes
+    """
+    To add coloured text in console output
+        Fore: For changing the text colour (e.g., Fore.RED for red text)
+        Style: For additional text formatting like BRIGHT, DIM, and NORMAL
+        init: To ensure compatibility with Windows terminals by enabling ANSI color codes
+    """
+    
     from colorama import Fore, Style, init 
 
     # Import pyfiglet for ASCII art title formatting
@@ -24,13 +27,15 @@ except ImportError as e:
 
 # A class to represents a monthly budget allocation system
 class Budget:
-    # Initializes the budget with income and expenses, ensuring values are valid.
-    # Parameters:
-        # income (float): The user's total monthly income.
-        # fixed_expenses (float): The total fixed expenses deducted from the income.
+    """
+    Initializes the budget with income and expenses, ensuring values are valid.
+    Parameters:
+        income (float): The user's total monthly income.
+        fixed_expenses (float): The total fixed expenses deducted from the income.
+    """
     def __init__(self, income, fixed_expenses):
-        # Attributes:
-        # income (float): Stores the provided income value.
+        
+        # Attributes: income (float): Stores the provided income value.
         self.income = income
 
         # fixed_expenses (float): Stores the provided fixed expenses value.
@@ -82,9 +87,9 @@ class Budget:
             # Print the text in red text 
             print(f"{Fore.RED}Your Monthly Budget Allocation:")
 
-            # Define a list of tuples containing budget categories and their calculated values
-            # Each tuple consists of two elements: the category name (as a string) and the corresponding value
-# that was calculated earlier in the budget_calculation() method.
+            """Define a list of tuples containing budget categories and their calculated values.
+            Each tuple consists of two elements: the category name (as a string) and the corresponding value
+            that was calculated earlier in the budget_calculation() method."""
             catergories = [
                             ("Saving" , savings), 
                             ("Investment" , investments), 
