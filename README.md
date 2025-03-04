@@ -120,3 +120,4 @@ Guilt-Free Spending: 10% of remaining income
     - `tabulate` (version 0.9.0) - Licensed under the [MIT License](https://opensource.org/licenses/MIT)
     - `colorama` (version 0.4.6) - Licensed under the [MIT License](https://opensource.org/licenses/MIT)
     - `pyfiglet` (version 0.8) - Licensed under the [MIT License](https://opensource.org/licenses/MIT)
+
