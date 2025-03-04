@@ -32,6 +32,7 @@ def ask_to_continue():
         # Handle key interruption by user by pressing ctrl + c
         except KeyboardInterrupt:
             print('\nApp terminated by user.')
+            exit()
 
         # Handle any unexpected errors
         except Exception as e :
