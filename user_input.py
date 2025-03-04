@@ -46,10 +46,6 @@ class User_input:
                 # Prompt user for fixed expenses and validate input
                 self.fix_expenses = float(input('Please enter your monthly fixed expenses: '))
 
-                # Input validation with timeout by restricting user input time to 30 seconds
-                with timeout(30): 
-                     self.fix_expenses = float(input('Please enter your monthnly fixed expenses: '))
-
                 # If the user input is negative
                 if self.fix_expenses < 0:
 
