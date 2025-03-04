@@ -17,19 +17,23 @@ def ask_to_continue():
             answer = input('Do you wish to calculate another budget? (y/n): ')
 
             # If user enters 'y', return True to continue the process
-            if answer == 'y':
+            if answer.lower() == 'y': 
                 return True
-            
+    
             # If user enters 'n', print a message and return False to exit.
-            elif answer == 'n':
+            elif answer.lower() == 'n':
                 print('Thank you for using the Budget App!')
                 return False
             
             # If the input is not 'y' or 'n', show an error message and prompt again.
             else:
                 print("Invalid input! Please enter 'y' for yes or 'n' for no.")
+                
+        # Handle key interruption by user by pressing ctrl + c
+        except KeyboardInterrupt:
+            print('\nApp terminated by user.')
 
         # Handle any unexpected errors
         except Exception as e :
-             print(f'Error: Unexpected error {e} occor')
+            print(f'Error: Unexpected error {e} occor')
             
