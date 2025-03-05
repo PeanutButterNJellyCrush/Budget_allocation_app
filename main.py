@@ -6,8 +6,6 @@ from Budget_Percentage_Calculation import (
 from continue_app import (
     ask_to_continue,
 )  # Imports the ask_to_continue function to check if the user wants another calculation
-import sys
-import os
 
 """
 The main function that runs the budget calculation program.
@@ -46,15 +44,12 @@ def main():
                 # Exit the loop if user chooses 'n'
                 break
 
+        # Handle user exiting the app at any point with ctrl + c
         except KeyboardInterrupt:
             print(" command performed by user. This app has now terminated.")
-            try:
-                sys.exit()
-            except SystemExit:
-                os._exit(130)
+            exit()
 
         # Handle unexpected errors
-
         except Exception as e:
 
             # Print an error message

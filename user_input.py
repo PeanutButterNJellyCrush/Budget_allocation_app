@@ -53,7 +53,7 @@ class User_input:
                     # Prompt again
                     continue
                 
-                                # If the user expenses > monthly income
+                # If the user expenses > monthly income
                 if self.fix_expenses > self.income:
                     print(f"Error: Expenses cannot be greater than your monthly income. Please try again.")
                     
