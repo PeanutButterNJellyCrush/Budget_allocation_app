@@ -1,6 +1,3 @@
-import sys
-import os
-
 # Prompts the user to decide whether they want to calculate another budget
 def ask_to_continue():
 
