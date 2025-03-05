@@ -35,10 +35,7 @@ def ask_to_continue():
         # Handle key interruption by user by pressing ctrl + c
         except KeyboardInterrupt:
             print(' command performed by user. This app has now terminated.')
-            try:
-                sys.exit()
-            except SystemExit:
-                os._exit(130)
+            exit()
 
         # Handle any unexpected errors
         except Exception as e :
