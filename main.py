@@ -6,8 +6,6 @@ from Budget_Percentage_Calculation import (
 from continue_app import (
     ask_to_continue,
 )  # Imports the ask_to_continue function to check if the user wants another calculation
-import sys
-import os
 
 """
 The main function that runs the budget calculation program.
