@@ -48,10 +48,7 @@ def main():
 
         except KeyboardInterrupt:
             print(" command performed by user. This app has now terminated.")
-            try:
-                sys.exit()
-            except SystemExit:
-                os._exit(130)
+            exit()
 
         # Handle unexpected errors
 
