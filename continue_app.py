@@ -1,3 +1,6 @@
+import sys
+import os
+
 # Prompts the user to decide whether they want to calculate another budget
 def ask_to_continue():
 
@@ -31,8 +34,11 @@ def ask_to_continue():
                 
         # Handle key interruption by user by pressing ctrl + c
         except KeyboardInterrupt:
-            print('\nApp terminated by user.')
-            exit()
+            print(' command performed by user. This app has now terminated.')
+            try:
+                sys.exit()
+            except SystemExit:
+                os._exit(130)
 
         # Handle any unexpected errors
         except Exception as e :
