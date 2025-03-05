@@ -84,6 +84,8 @@ In termimal:
 ```
 python main.py
 ```
+To terminate the Budget Allocation App, use ctrl + c keys together to exit the app. 
+
 ## Prompts
 - Enter monthly income when prompted
 - Enter fixed expenses when prompted
