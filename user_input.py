@@ -41,8 +41,6 @@ class User_input:
                     # Prompt again
                     continue
 
-
-
                 # Prompt user for fixed expenses and validate input
                 self.fix_expenses = float(input('Please enter your monthly fixed expenses: '))
 
@@ -54,15 +52,18 @@ class User_input:
                     
                     # Prompt again
                     continue
-
-                # If the user expesnes > monthly income: 
-                elif self.fix_expenses > self.income:
+                
+                                # If the user expenses > monthly income
+                if self.fix_expenses > self.income:
                     print(f"Error: Expenses cannot be greater than your monthly income. Please try again.")
+                    
+                    #Prompt again
+                    continue
 
                 # Return validated values for running the calculation
-                    continue
                 return self.income, self.fix_expenses
             
+                
             # Handles cases where the user enters a non-numeric value
             except ValueError:
 
@@ -71,12 +72,6 @@ class User_input:
 
                 # Prompt again
                 continue
-
-            # Catches user pressing ctrl + c
-            except KeyboardInterrupt:
-                 print(f"App exited by user.")
-                 exit()
-
 
             # Catches any other unexpected errors
             except Exception as e:
