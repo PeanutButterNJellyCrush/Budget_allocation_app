@@ -44,12 +44,12 @@ def main():
                 # Exit the loop if user chooses 'n'
                 break
 
+        # Handle user exiting the app at any point with ctrl + c
         except KeyboardInterrupt:
             print(" command performed by user. This app has now terminated.")
             exit()
 
         # Handle unexpected errors
-
         except Exception as e:
 
             # Print an error message
