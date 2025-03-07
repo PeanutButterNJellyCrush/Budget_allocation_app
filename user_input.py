@@ -76,15 +76,11 @@ class User_input:
                 # Prompt again
                 continue
 
-<<<<<<< HEAD
-=======
             # Catches user pressing ctrl + c
             except KeyboardInterrupt:
                  print(f"{Fore.YELLOW}App exited by user.{Style.RESET_ALL}")
                  exit()
-
-
->>>>>>> 88f207a (Add colour for user input error)
+                 
             # Catches any other unexpected errors
             except Exception as e:
                 # Print the error message
