@@ -12,7 +12,6 @@ try:
         Style: For additional text formatting like BRIGHT, DIM, and NORMAL
         init: To ensure compatibility with Windows terminals by enabling ANSI color codes
     """
-    
     from colorama import Fore, Style
 
     # Import pyfiglet for ASCII art title formatting
