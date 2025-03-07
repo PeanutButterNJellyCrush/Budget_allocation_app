@@ -1,5 +1,19 @@
+# Import necessary libraries, handling missing packages errors
+try:
+    """
+    To add coloured text in console output
+        Fore: For changing the text colour (e.g., Fore.RED for red text)
+        Style: For additional text formatting like BRIGHT, DIM, and NORMAL
+        init: To ensure compatibility with Windows terminals by enabling ANSI color codes
+    """
+    from colorama import Fore, Style
 
-from colorama import Fore, Style
+# Handling the case where the colorama package is missing
+except ImportError as e:
+    # Prints an error message specifying the missing package
+    print(f"Error: The package {e.name} is not installed. Please install it by running: pip install {e.name}")
+    # Exits the program to ensure that the script does not continue running, and prevents runtime errors
+    exit(1)
 
 # A class to handle user input for income and fixed expenses.
 class User_input:
@@ -38,7 +52,7 @@ class User_input:
                 # If the user input is negative
                 if self.income <= 0:
 
-                    # Print the error message
+                    # Print the error message in red
                     print(f"{Fore.RED}Error: Income cannot be zero or negative. Please enter a valid amount.{Style.RESET_ALL}")
                     
                     # Prompt again
@@ -50,7 +64,7 @@ class User_input:
                 # If the user input is negative
                 if self.fix_expenses < 0:
 
-                    # Print the error message
+                    # Print the error message in red
                     print(f"{Fore.RED}Error: Expenses cannot be negative. Please enter a valid amount.{Style.RESET_ALL}")
                     
                     # Prompt again
@@ -70,7 +84,7 @@ class User_input:
             # Handles cases where the user enters a non-numeric value
             except ValueError:
 
-                # Print the error message
+                # Print the error message in red
                 print(f"{Fore.RED}Error: Please enter a valid number{Style.RESET_ALL}")
 
                 # Prompt again
@@ -78,9 +92,13 @@ class User_input:
 
             # Catches user pressing ctrl + c
             except KeyboardInterrupt:
-                 print(f"{Fore.YELLOW}App exited by user.{Style.RESET_ALL}")
-                 exit()
                  
+                #  Print the message in yellow
+                 print(f"{Fore.YELLOW}App exited by user.{Style.RESET_ALL}")
+
+                #  exit the app
+                 exit()
+
             # Catches any other unexpected errors
             except Exception as e:
                 # Print the error message
