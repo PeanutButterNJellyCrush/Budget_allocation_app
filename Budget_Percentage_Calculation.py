@@ -49,11 +49,6 @@ class Budget:
             # Avoids further calculations with missing data
             return
         
-        # Validate that expenses are not equal to or greater than income
-        if self.remaining_income <= 0:
-            #raise an error message is displayed in red, preventing incorrect budgeting, and reset the colours
-           raise ValueError("{Fore.RED}Expenses cannot be larger than income, or equal to the income{Style.RESET_ALL}")
-
     #  Calculates budget allocation based on fixed percentage categories.
     def budget_calculation(self):
 
@@ -113,7 +108,6 @@ class Budget:
             # In case of any error, print an error message in red, and reset the text style after this
         except Exception as e:
             print(f"{Fore.RED}Error in displaying the budget: {e}{Style.RESET_ALL}")
-
 
     
     """

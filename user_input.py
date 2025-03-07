@@ -1,3 +1,5 @@
+from colorama import Fore, Style
+
 # A class to handle user input for income and fixed expenses.
 class User_input:
 
@@ -36,7 +38,7 @@ class User_input:
                 if self.income <= 0:
 
                     # Print the error message
-                    print(f"Error: Income cannot be zero or negative. Please enter a valid amount.")
+                    print(f"{Fore.RED}Error: Income cannot be zero or negative. Please enter a valid amount.{Style.RESET_ALL}")
                     
                     # Prompt again
                     continue
@@ -48,14 +50,14 @@ class User_input:
                 if self.fix_expenses < 0:
 
                     # Print the error message
-                    print(f"Error: Expenses cannot be negative. Please enter a valid amount.")
+                    print(f"{Fore.RED}Error: Expenses cannot be negative. Please enter a valid amount.{Style.RESET_ALL}")
                     
                     # Prompt again
                     continue
-                
-                # If the user expenses > monthly income
+
+                # # If the user expesnes > monthly income: 
                 if self.fix_expenses > self.income:
-                    print(f"Error: Expenses cannot be greater than your monthly income. Please try again.")
+                    print(f"{Fore.RED}Error: Expenses cannot be greater than your monthly income. Please try again.{Style.RESET_ALL}")
                     
                     #Prompt again
                     continue
@@ -68,15 +70,24 @@ class User_input:
             except ValueError:
 
                 # Print the error message
-                print(f'Error: Please enter a valid number')
+                print(f"{Fore.RED}Error: Please enter a valid number{Style.RESET_ALL}")
 
                 # Prompt again
                 continue
 
+<<<<<<< HEAD
+=======
+            # Catches user pressing ctrl + c
+            except KeyboardInterrupt:
+                 print(f"{Fore.YELLOW}App exited by user.{Style.RESET_ALL}")
+                 exit()
+
+
+>>>>>>> 88f207a (Add colour for user input error)
             # Catches any other unexpected errors
             except Exception as e:
                 # Print the error message
-                print(f"Unexpected Error Occur {e}, Please double check your answer and try again :)")
+                print(f"{Fore.RED}Unexpected Error Occurred: {e}, Please double check your answer and try again.{Style.RESET_ALL}")
 
                 # Exits the function in case of an unexpected error
                 return 
