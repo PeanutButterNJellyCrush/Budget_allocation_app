@@ -13,7 +13,7 @@ try:
         init: To ensure compatibility with Windows terminals by enabling ANSI color codes
     """
     
-    from colorama import Fore, Style, init 
+    from colorama import Fore, Style
 
     # Import pyfiglet for ASCII art title formatting
     import pyfiglet 
