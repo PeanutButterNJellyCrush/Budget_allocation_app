@@ -6,7 +6,8 @@ from Budget_Percentage_Calculation import (
 from continue_app import (
     ask_to_continue,
 )  # Imports the ask_to_continue function to check if the user wants another calculation
-
+from colorama import Fore, Style
+   # Imports colorama library
 """
 The main function that runs the budget calculation program.
 Workflow:
@@ -46,7 +47,7 @@ def main():
 
         # Handle user exiting the app at any point with ctrl + c
         except KeyboardInterrupt:
-            print(" command performed by user. This app has now terminated.")
+            print(f"{Fore.YELLOW} command performed by user. This app has now terminated.{Style.RESET_ALL}")
             exit()
 
         # Handle unexpected errors
