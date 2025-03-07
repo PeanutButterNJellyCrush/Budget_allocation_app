@@ -94,7 +94,7 @@ class User_input:
             except KeyboardInterrupt:
                  
                 #  Print the message in yellow
-                 print(f"{Fore.YELLOW}App exited by user.{Style.RESET_ALL}")
+                 print(f"{Fore.YELLOW} command performed by user. This app has now terminated.{Style.RESET_ALL}")
 
                 #  exit the app
                  exit()
