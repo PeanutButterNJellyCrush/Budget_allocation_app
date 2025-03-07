@@ -90,14 +90,6 @@ class User_input:
                 # Prompt again
                 continue
 
-            # Catches user pressing ctrl + c
-            except KeyboardInterrupt:
-                 
-                #  Print the message in yellow
-                 print(f"{Fore.YELLOW} command performed by user. This app has now terminated.{Style.RESET_ALL}")
-
-                #  exit the app
-                 exit()
 
             # Catches any other unexpected errors
             except Exception as e:
