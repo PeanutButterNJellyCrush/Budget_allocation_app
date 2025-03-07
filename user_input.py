@@ -1,3 +1,4 @@
+
 from colorama import Fore, Style
 
 # A class to handle user input for income and fixed expenses.
